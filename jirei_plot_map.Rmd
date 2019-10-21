@@ -1,0 +1,27 @@
+---
+title: "XXX市の事例プロット"
+output: html_notebook
+---
+
+```{r include=FALSE}
+library(tidyverse)
+library(leaflet)
+library(DT)
+source("code/read_jire.R", encoding = "UTF-8")
+source("code/jirei_map_lib.R", encoding = "UTF-8")
+
+# 事例の読み込み
+jirei10 <- read_jirei10("data/SAMPLE_JIREI10.TXT")
+```
+
+
+
+```{r echo=FALSE, fig.width=9}
+#plot
+leaflet(jirei10) %>% 
+  addTiles() %>% 
+  add_my_marker()
+
+```
+
+
